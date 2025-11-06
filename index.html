@@ -20,7 +20,7 @@
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       width: 95%;
-      max-width: 900px;
+      max-width: 950px;
     }
     h2 {
       text-align: center;
@@ -34,16 +34,28 @@
       border-radius: 6px;
       margin-top: 25px;
     }
-    .row {
+    .sku-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 10px;
-      align-items: center;
-      margin-top: 8px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px 25px;
+      margin-top: 10px;
     }
-    label {
-      font-weight: 600;
-      grid-column: span 1;
+    .sku-card {
+      display: flex;
+      flex-direction: column;
+      background: #f9f9f9;
+      border-radius: 8px;
+      padding: 10px 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .sku-card label {
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #0078D7;
+    }
+    .input-pair {
+      display: flex;
+      gap: 8px;
     }
     input[type="number"], input[type="date"], input[type="text"] {
       padding: 8px;
@@ -51,10 +63,8 @@
       border: 1px solid #ccc;
       width: 100%;
     }
-    .pair {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
+    input[type="number"] {
+      step: any;
     }
     button {
       margin-top: 25px;
@@ -88,94 +98,37 @@
     <label for="NAME">Name</label>
     <input type="text" id="NAME" name="NAME" placeholder="Enter your name" required>
 
+    <!-- RG SERIES -->
     <h3>RG Series</h3>
-    <div class="row">
-      <label>RG1.25G</label>
-      <div class="pair">
-        <input type="number" name="RG1_25G_LOOSE" data-sku="RG1.25G" placeholder="Loose">
-        <input type="number" name="RG1_25G_IC" data-sku="RG1.25G" placeholder="IC">
-      </div>
-
-      <label>RG2.20G</label>
-      <div class="pair">
-        <input type="number" name="RG2_20G_LOOSE" data-sku="RG2.20G" placeholder="Loose">
-        <input type="number" name="RG2_20G_IC" data-sku="RG2.20G" placeholder="IC">
-      </div>
-
-      <label>RG4.00G</label>
-      <div class="pair">
-        <input type="number" name="RG4_00G_LOOSE" data-sku="RG4.00G" placeholder="Loose">
-        <input type="number" name="RG4_00G_IC" data-sku="RG4.00G" placeholder="IC">
-      </div>
-
-      <label>RGZ17.00G</label>
-      <div class="pair">
-        <input type="number" name="RGZ17_00G_LOOSE" data-sku="RGZ17.00G" placeholder="Loose">
-        <input type="number" name="RGZ17_00G_IC" data-sku="RGZ17.00G" placeholder="IC">
-      </div>
-
-      <label>RG100.00G</label>
-      <div class="pair">
-        <input type="number" name="RG100_00G_LOOSE" data-sku="RG100.00G" placeholder="Loose">
-        <input type="number" name="RG100_00G_IC" data-sku="RG100.00G" placeholder="IC">
-      </div>
+    <div class="sku-grid">
+      <div class="sku-card"><label>RG1.25G</label><div class="input-pair"><input type="number" name="RG1_25G_LOOSE" data-sku="RG1.25G" placeholder="Loose"><input type="number" name="RG1_25G_IC" data-sku="RG1.25G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>RG2.20G</label><div class="input-pair"><input type="number" name="RG2_20G_LOOSE" data-sku="RG2.20G" placeholder="Loose"><input type="number" name="RG2_20G_IC" data-sku="RG2.20G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>RG4.00G</label><div class="input-pair"><input type="number" name="RG4_00G_LOOSE" data-sku="RG4.00G" placeholder="Loose"><input type="number" name="RG4_00G_IC" data-sku="RG4.00G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>RGZ17.00G</label><div class="input-pair"><input type="number" name="RGZ17_00G_LOOSE" data-sku="RGZ17.00G" placeholder="Loose"><input type="number" name="RGZ17_00G_IC" data-sku="RGZ17.00G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>RG100.00G</label><div class="input-pair"><input type="number" name="RG100_00G_LOOSE" data-sku="RG100.00G" placeholder="Loose"><input type="number" name="RG100_00G_IC" data-sku="RG100.00G" placeholder="IC"></div></div>
     </div>
 
+    <!-- TZ SERIES -->
     <h3>TZ Series</h3>
-    <div class="row">
-      <label>TZ0.25G</label>
-      <div class="pair">
-        <input type="number" name="TZ0_25G_LOOSE" data-sku="TZ0.25G" placeholder="Loose">
-        <input type="number" name="TZ0_25G_IC" data-sku="TZ0.25G" placeholder="IC">
-      </div>
-
-      <label>TZ0.45G</label>
-      <div class="pair">
-        <input type="number" name="TZ0_45G_LOOSE" data-sku="TZ0.45G" placeholder="Loose">
-        <input type="number" name="TZ0_45G_IC" data-sku="TZ0.45G" placeholder="IC">
-      </div>
-
-      <label>TZZ4.25G</label>
-      <div class="pair">
-        <input type="number" name="TZZ4_25G_LOOSE" data-sku="TZZ4.25G" placeholder="Loose">
-        <input type="number" name="TZZ4_25G_IC" data-sku="TZZ4.25G" placeholder="IC">
-      </div>
-
-      <label>TZ10.00G</label>
-      <div class="pair">
-        <input type="number" name="TZ10_00G_LOOSE" data-sku="TZ10.00G" placeholder="Loose">
-        <input type="number" name="TZ10_00G_IC" data-sku="TZ10.00G" placeholder="IC">
-      </div>
-
-      <label>TZ50.00G</label>
-      <div class="pair">
-        <input type="number" name="TZ50_00G_LOOSE" data-sku="TZ50.00G" placeholder="Loose">
-        <input type="number" name="TZ50_00G_IC" data-sku="TZ50.00G" placeholder="IC">
-      </div>
+    <div class="sku-grid">
+      <div class="sku-card"><label>TZ0.25G</label><div class="input-pair"><input type="number" name="TZ0_25G_LOOSE" data-sku="TZ0.25G" placeholder="Loose"><input type="number" name="TZ0_25G_IC" data-sku="TZ0.25G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>TZ0.45G</label><div class="input-pair"><input type="number" name="TZ0_45G_LOOSE" data-sku="TZ0.45G" placeholder="Loose"><input type="number" name="TZ0_45G_IC" data-sku="TZ0.45G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>TZZ4.25G</label><div class="input-pair"><input type="number" name="TZZ4_25G_LOOSE" data-sku="TZZ4.25G" placeholder="Loose"><input type="number" name="TZZ4_25G_IC" data-sku="TZZ4.25G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>TZ10.00G</label><div class="input-pair"><input type="number" name="TZ10_00G_LOOSE" data-sku="TZ10.00G" placeholder="Loose"><input type="number" name="TZ10_00G_IC" data-sku="TZ10.00G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>TZ50.00G</label><div class="input-pair"><input type="number" name="TZ50_00G_LOOSE" data-sku="TZ50.00G" placeholder="Loose"><input type="number" name="TZ50_00G_IC" data-sku="TZ50.00G" placeholder="IC"></div></div>
     </div>
 
+    <!-- KZ SERIES -->
     <h3>KZ Series</h3>
-    <div class="row">
-      <label>KZ5.75G</label>
-      <div class="pair">
-        <input type="number" name="KZ5_75G_LOOSE" data-sku="KZ5.75G" placeholder="Loose">
-        <input type="number" name="KZ5_75G_IC" data-sku="KZ5.75G" placeholder="IC">
-      </div>
-
-      <label>KZ30.00G</label>
-      <div class="pair">
-        <input type="number" name="KZ30_00G_LOOSE" data-sku="KZ30.00G" placeholder="Loose">
-        <input type="number" name="KZ30_00G_IC" data-sku="KZ30.00G" placeholder="IC">
-      </div>
+    <div class="sku-grid">
+      <div class="sku-card"><label>KZ5.75G</label><div class="input-pair"><input type="number" name="KZ5_75G_LOOSE" data-sku="KZ5.75G" placeholder="Loose"><input type="number" name="KZ5_75G_IC" data-sku="KZ5.75G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>KZ30.00G</label><div class="input-pair"><input type="number" name="KZ30_00G_LOOSE" data-sku="KZ30.00G" placeholder="Loose"><input type="number" name="KZ30_00G_IC" data-sku="KZ30.00G" placeholder="IC"></div></div>
     </div>
 
+    <!-- MT SERIES -->
     <h3>MT Series</h3>
-    <div class="row">
-      <label>MT2.75G</label>
-      <div class="pair">
-        <input type="number" name="MT2_75G_LOOSE" data-sku="MT2.75G" placeholder="Loose">
-        <input type="number" name="MT2_75G_IC" data-sku="MT2.75G" placeholder="IC">
-      </div>
+    <div class="sku-grid">
+      <div class="sku-card"><label>MT2.75G</label><div class="input-pair"><input type="number" name="MT2_75G_LOOSE" data-sku="MT2.75G" placeholder="Loose"><input type="number" name="MT2_75G_IC" data-sku="MT2.75G" placeholder="IC"></div></div>
     </div>
 
     <button type="submit">Submit Data</button>
@@ -186,29 +139,19 @@
     const scriptURL = "https://script.google.com/macros/s/AKfycbxTMfItJ2y1lfvdlWhCV39N3rMuaBuvdgPSCOr92Hq5g-LTmILku0QxNf35y4X5pfDm/exec";
 
     const conversionRates = {
-      "RG1.25G": 52,
-      "RG2.20G": 54,
-      "RG4.00G": 48,
-      "RGZ17.00G": 12,
-      "RG100.00G": 4,
-      "TZ0.25G": 52,
-      "TZ0.45G": 50,
-      "TZZ4.25G": 6,
-      "TZ10.00G": 6,
-      "TZ50.00G": 4,
-      "KZ5.75G": 12,
-      "KZ30.00G": 12,
-      "MT2.75G": 20
+      "RG1.25G": 52, "RG2.20G": 54, "RG4.00G": 48, "RGZ17.00G": 12, "RG100.00G": 4,
+      "TZ0.25G": 52, "TZ0.45G": 50, "TZZ4.25G": 6, "TZ10.00G": 6, "TZ50.00G": 4,
+      "KZ5.75G": 12, "KZ30.00G": 12, "MT2.75G": 20
     };
 
-    // Auto conversion
+    // Auto conversion logic
     document.querySelectorAll('input[type="number"]').forEach(input => {
       input.addEventListener('input', e => {
         const sku = e.target.dataset.sku;
+        if (!sku) return;
+        const rate = conversionRates[sku];
         const pair = e.target.parentElement.querySelectorAll('input');
         const [looseInput, icInput] = pair;
-        const rate = conversionRates[sku];
-
         if (e.target === looseInput && rate) {
           const looseVal = parseFloat(looseInput.value);
           icInput.value = looseVal ? (looseVal / rate).toFixed(2) : "";
@@ -238,7 +181,7 @@
         } else {
           document.getElementById("responseMessage").textContent = "⚠️ Error submitting data.";
         }
-      } catch (err) {
+      } catch {
         document.getElementById("responseMessage").textContent = "❌ Connection error.";
       }
     });
