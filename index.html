@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ISR SALE PUNCH</title>
   <style>
     body {
@@ -11,180 +11,227 @@
       color: #333;
       display: flex;
       justify-content: center;
-      align-items: center;
-      padding: 40px 0;
+      padding: 24px;
     }
     form {
+      width: 100%;
+      max-width: 1000px;
       background: #fff;
-      padding: 25px 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      width: 95%;
-      max-width: 900px;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     }
-    h2 {
-      text-align: center;
-      color: #0078D7;
-      margin-bottom: 20px;
-    }
-    h3 {
-      background: #0078D7;
-      color: white;
-      padding: 8px 12px;
-      border-radius: 6px;
-      margin-top: 25px;
-    }
-    .row {
+    h1 { margin: 0 0 12px; color:#0078D7; font-size:20px; }
+    h2.section { background:#0078D7; color:#fff; padding:8px 10px; border-radius:6px; margin-top:18px; }
+    .field-row {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 120px 1fr 1fr;
       gap: 10px;
       align-items: center;
-      margin-top: 8px;
+      margin: 8px 0;
     }
-    label {
-      font-weight: 600;
-      grid-column: span 1;
-    }
-    input[type="number"], input[type="date"], input[type="text"] {
+    label { font-weight:600; }
+    input[type="text"], input[type="date"], input[type="number"] {
       padding: 8px;
       border-radius: 6px;
       border: 1px solid #ccc;
       width: 100%;
+      box-sizing: border-box;
+      font-size: 14px;
     }
-    .pair {
+    .sku-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
-    button {
-      margin-top: 25px;
-      width: 100%;
-      background-color: #0078D7;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #005fa3;
-    }
-    .success {
-      color: green;
-      text-align: center;
+      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+      gap: 12px;
       margin-top: 10px;
-      font-weight: bold;
+    }
+    .sku {
+      background:#fbfbfb;
+      border-radius:8px;
+      padding:10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
+    .sku .sku-title { color:#0078D7; font-weight:700; margin-bottom:6px;}
+    .input-pair { display:flex; gap:8px; }
+    button {
+      margin-top:18px;
+      width:100%;
+      background:#0078D7;
+      color:#fff;
+      border:none;
+      padding:12px;
+      font-size:16px;
+      border-radius:8px;
+      cursor:pointer;
+    }
+    .msg { margin-top:8px; font-weight:600; text-align:center; }
+    @media (max-width:520px) {
+      .field-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <form id="dataForm">
-    <h2>ISR SALE PUNCH</h2>
+  <form id="dataForm" novalidate>
+    <h1>ISR SALE PUNCH</h1>
 
-    <label for="DATE">Date</label>
-    <input type="date" id="DATE" name="DATE" required>
+    <div class="field-row">
+      <label for="DATE">Date</label>
+      <input type="date" id="DATE" name="DATE" required>
+      <div></div>
+    </div>
 
-    <label for="NAME">Name</label>
-    <input type="text" id="NAME" name="NAME" placeholder="Enter your name" required>
+    <div class="field-row">
+      <label for="NAME">Name</label>
+      <input type="text" id="NAME" name="NAME" placeholder="Enter your name" required>
+      <div></div>
+    </div>
 
-    <h3>RG Series</h3>
-    <div class="row">
-      <label>RG1.25G</label>
-      <div class="pair">
-        <input type="number" name="RG1_25G_LOOSE" data-sku="RG1.25G" placeholder="Loose" step="any">
-        <input type="number" name="RG1_25G_IC" data-sku="RG1.25G" placeholder="IC" step="any">
+    <!-- RG Series -->
+    <h2 class="section">RG Series</h2>
+    <div class="sku-grid">
+      <!-- RG1.25G -->
+      <div class="sku">
+        <div class="sku-title">RG1.25G</div>
+        <div class="input-pair">
+          <input type="number" name="RG1_25G_LOOSE" id="RG1_25G_LOOSE" data-sku="RG1.25G"
+                 placeholder="Loose"
+                 step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+          <input type="number" name="RG1_25G_IC" id="RG1_25G_IC" data-sku="RG1.25G"
+                 placeholder="IC"
+                 step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+        </div>
       </div>
 
-      <label>RG2.20G</label>
-      <div class="pair">
-        <input type="number" name="RG2_20G_LOOSE" data-sku="RG2.20G" placeholder="Loose" step="any">
-        <input type="number" name="RG2_20G_IC" data-sku="RG2.20G" placeholder="IC" step="any">
+      <!-- RG2.20G -->
+      <div class="sku">
+        <div class="sku-title">RG2.20G</div>
+        <div class="input-pair">
+          <input type="number" name="RG2_20G_LOOSE" id="RG2_20G_LOOSE" data-sku="RG2.20G" placeholder="Loose" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+          <input type="number" name="RG2_20G_IC" id="RG2_20G_IC" data-sku="RG2.20G" placeholder="IC" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+        </div>
       </div>
 
-      <label>RG4.00G</label>
-      <div class="pair">
-        <input type="number" name="RG4_00G_LOOSE" data-sku="RG4.00G" placeholder="Loose" step="any">
-        <input type="number" name="RG4_00G_IC" data-sku="RG4.00G" placeholder="IC" step="any">
+      <!-- RG4.00G -->
+      <div class="sku">
+        <div class="sku-title">RG4.00G</div>
+        <div class="input-pair">
+          <input type="number" name="RG4_00G_LOOSE" id="RG4_00G_LOOSE" data-sku="RG4.00G" placeholder="Loose" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+          <input type="number" name="RG4_00G_IC" id="RG4_00G_IC" data-sku="RG4.00G" placeholder="IC" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+        </div>
       </div>
 
-      <label>RGZ17.00G</label>
-      <div class="pair">
-        <input type="number" name="RGZ17_00G_LOOSE" data-sku="RGZ17.00G" placeholder="Loose" step="any">
-        <input type="number" name="RGZ17_00G_IC" data-sku="RGZ17.00G" placeholder="IC" step="any">
+      <!-- RGZ17.00G -->
+      <div class="sku">
+        <div class="sku-title">RGZ17.00G</div>
+        <div class="input-pair">
+          <input type="number" name="RGZ17_00G_LOOSE" id="RGZ17_00G_LOOSE" data-sku="RGZ17.00G" placeholder="Loose" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+          <input type="number" name="RGZ17_00G_IC" id="RGZ17_00G_IC" data-sku="RGZ17.00G" placeholder="IC" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+        </div>
       </div>
 
-      <label>RG100.00G</label>
-      <div class="pair">
-        <input type="number" name="RG100_00G_LOOSE" data-sku="RG100.00G" placeholder="Loose" step="any">
-        <input type="number" name="RG100_00G_IC" data-sku="RG100.00G" placeholder="IC" step="any">
+      <!-- RG100.00G -->
+      <div class="sku">
+        <div class="sku-title">RG100.00G</div>
+        <div class="input-pair">
+          <input type="number" name="RG100_00G_LOOSE" id="RG100_00G_LOOSE" data-sku="RG100.00G" placeholder="Loose" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+          <input type="number" name="RG100_00G_IC" id="RG100_00G_IC" data-sku="RG100.00G" placeholder="IC" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+        </div>
       </div>
     </div>
 
-    <h3>TZ Series</h3>
-    <div class="row">
-      <label>TZ0.25G</label>
-      <div class="pair">
-        <input type="number" name="TZ0_25G_LOOSE" data-sku="TZ0.25G" placeholder="Loose" step="any">
-        <input type="number" name="TZ0_25G_IC" data-sku="TZ0.25G" placeholder="IC" step="any">
+    <!-- TZ Series -->
+    <h2 class="section">TZ Series</h2>
+    <div class="sku-grid">
+      <!-- TZ0.25G -->
+      <div class="sku">
+        <div class="sku-title">TZ0.25G</div>
+        <div class="input-pair">
+          <input type="number" name="TZ0_25G_LOOSE" id="TZ0_25G_LOOSE" data-sku="TZ0.25G" placeholder="Loose" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+          <input type="number" name="TZ0_25G_IC" id="TZ0_25G_IC" data-sku="TZ0.25G" placeholder="IC" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+        </div>
       </div>
 
-      <label>TZ0.45G</label>
-      <div class="pair">
-        <input type="number" name="TZ0_45G_LOOSE" data-sku="TZ0.45G" placeholder="Loose" step="any">
-        <input type="number" name="TZ0_45G_IC" data-sku="TZ0.45G" placeholder="IC" step="any">
+      <!-- TZ0.45G -->
+      <div class="sku">
+        <div class="sku-title">TZ0.45G</div>
+        <div class="input-pair">
+          <input type="number" name="TZ0_45G_LOOSE" id="TZ0_45G_LOOSE" data-sku="TZ0.45G" placeholder="Loose" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+          <input type="number" name="TZ0_45G_IC" id="TZ0_45G_IC" data-sku="TZ0.45G" placeholder="IC" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+        </div>
       </div>
 
-      <label>TZZ4.25G</label>
-      <div class="pair">
-        <input type="number" name="TZZ4_25G_LOOSE" data-sku="TZZ4.25G" placeholder="Loose" step="any">
-        <input type="number" name="TZZ4_25G_IC" data-sku="TZZ4.25G" placeholder="IC" step="any">
+      <!-- TZZ4.25G -->
+      <div class="sku">
+        <div class="sku-title">TZZ4.25G</div>
+        <div class="input-pair">
+          <input type="number" name="TZZ4_25G_LOOSE" id="TZZ4_25G_LOOSE" data-sku="TZZ4.25G" placeholder="Loose" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+          <input type="number" name="TZZ4_25G_IC" id="TZZ4_25G_IC" data-sku="TZZ4.25G" placeholder="IC" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+        </div>
       </div>
 
-      <label>TZ10.00G</label>
-      <div class="pair">
-        <input type="number" name="TZ10_00G_LOOSE" data-sku="TZ10.00G" placeholder="Loose" step="any">
-        <input type="number" name="TZ10_00G_IC" data-sku="TZ10.00G" placeholder="IC" step="any">
+      <!-- TZ10.00G -->
+      <div class="sku">
+        <div class="sku-title">TZ10.00G</div>
+        <div class="input-pair">
+          <input type="number" name="TZ10_00G_LOOSE" id="TZ10_00G_LOOSE" data-sku="TZ10.00G" placeholder="Loose" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+          <input type="number" name="TZ10_00G_IC" id="TZ10_00G_IC" data-sku="TZ10.00G" placeholder="IC" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+        </div>
       </div>
 
-      <label>TZ50.00G</label>
-      <div class="pair">
-        <input type="number" name="TZ50_00G_LOOSE" data-sku="TZ50.00G" placeholder="Loose" step="any">
-        <input type="number" name="TZ50_00G_IC" data-sku="TZ50.00G" placeholder="IC" step="any">
+      <!-- TZ50.00G -->
+      <div class="sku">
+        <div class="sku-title">TZ50.00G</div>
+        <div class="input-pair">
+          <input type="number" name="TZ50_00G_LOOSE" id="TZ50_00G_LOOSE" data-sku="TZ50.00G" placeholder="Loose" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+          <input type="number" name="TZ50_00G_IC" id="TZ50_00G_IC" data-sku="TZ50.00G" placeholder="IC" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+        </div>
       </div>
     </div>
 
-    <h3>KZ Series</h3>
-    <div class="row">
-      <label>KZ5.75G</label>
-      <div class="pair">
-        <input type="number" name="KZ5_75G_LOOSE" data-sku="KZ5.75G" placeholder="Loose" step="any">
-        <input type="number" name="KZ5_75G_IC" data-sku="KZ5.75G" placeholder="IC" step="any">
+    <!-- KZ Series -->
+    <h2 class="section">KZ Series</h2>
+    <div class="sku-grid">
+      <!-- KZ5.75G -->
+      <div class="sku">
+        <div class="sku-title">KZ5.75G</div>
+        <div class="input-pair">
+          <input type="number" name="KZ5_75G_LOOSE" id="KZ5_75G_LOOSE" data-sku="KZ5.75G" placeholder="Loose" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+          <input type="number" name="KZ5_75G_IC" id="KZ5_75G_IC" data-sku="KZ5.75G" placeholder="IC" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+        </div>
       </div>
 
-      <label>KZ30.00G</label>
-      <div class="pair">
-        <input type="number" name="KZ30_00G_LOOSE" data-sku="KZ30.00G" placeholder="Loose" step="any">
-        <input type="number" name="KZ30_00G_IC" data-sku="KZ30.00G" placeholder="IC" step="any">
+      <!-- KZ30.00G -->
+      <div class="sku">
+        <div class="sku-title">KZ30.00G</div>
+        <div class="input-pair">
+          <input type="number" name="KZ30_00G_LOOSE" id="KZ30_00G_LOOSE" data-sku="KZ30.00G" placeholder="Loose" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+          <input type="number" name="KZ30_00G_IC" id="KZ30_00G_IC" data-sku="KZ30.00G" placeholder="IC" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+        </div>
       </div>
     </div>
 
-    <h3>MT Series</h3>
-    <div class="row">
-      <label>MT2.75G</label>
-      <div class="pair">
-        <input type="number" name="MT2_75G_LOOSE" data-sku="MT2.75G" placeholder="Loose" step="any">
-        <input type="number" name="MT2_75G_IC" data-sku="MT2.75G" placeholder="IC" step="any">
+    <!-- MT Series -->
+    <h2 class="section">MT Series</h2>
+    <div class="sku-grid">
+      <!-- MT2.75G -->
+      <div class="sku">
+        <div class="sku-title">MT2.75G</div>
+        <div class="input-pair">
+          <input type="number" name="MT2_75G_LOOSE" id="MT2_75G_LOOSE" data-sku="MT2.75G" placeholder="Loose" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+          <input type="number" name="MT2_75G_IC" id="MT2_75G_IC" data-sku="MT2.75G" placeholder="IC" step="any" min="0" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*">
+        </div>
       </div>
     </div>
 
     <button type="submit">Submit Data</button>
-    <p id="responseMessage" class="success"></p>
+    <div id="message" class="msg"></div>
   </form>
 
   <script>
+    // Use the web app URL you provided earlier (keeps the same)
     const scriptURL = "https://script.google.com/macros/s/AKfycbxTMfItJ2y1lfvdlWhCV39N3rMuaBuvdgPSCOr92Hq5g-LTmILku0QxNf35y4X5pfDm/exec";
 
+    // Per-SKU conversion rates (loose per IC)
     const conversionRates = {
       "RG1.25G": 52,
       "RG2.20G": 54,
@@ -201,20 +248,40 @@
       "MT2.75G": 20
     };
 
-    // Auto conversion between Loose and IC
-    document.querySelectorAll('input[type="number"]').forEach(input => {
-      input.addEventListener('input', e => {
-        const sku = e.target.dataset.sku;
-        const pair = e.target.parentElement.querySelectorAll('input');
-        const [looseInput, icInput] = pair;
-        const rate = conversionRates[sku];
+    // helper: safe parse float (return null when empty/invalid)
+    function safeParseFloat(v) {
+      if (v === undefined || v === null) return null;
+      const n = parseFloat(String(v).replace(',', '.'));
+      return Number.isFinite(n) ? n : null;
+    }
 
-        if (e.target === looseInput && rate) {
-          const looseVal = parseFloat(looseInput.value);
-          icInput.value = looseVal ? (looseVal / rate).toFixed(2) : "";
-        } else if (e.target === icInput && rate) {
-          const icVal = parseFloat(icInput.value);
-          looseInput.value = icVal ? (icVal * rate).toFixed(0) : "";
+    // Attach listeners to all number inputs (LOOSE & IC)
+    document.querySelectorAll('input[type="number"]').forEach(inp => {
+      // ensure attributes are explicit (some browsers require presence in HTML)
+      inp.setAttribute('step', 'any');
+      inp.setAttribute('min', '0');
+      inp.setAttribute('inputmode', 'decimal');
+
+      inp.addEventListener('input', (e) => {
+        const target = e.target;
+        const sku = target.dataset.sku;
+        if (!sku) return;
+        const rate = conversionRates[sku];
+        if (!rate) return;
+        // parent pair contains two inputs (loose then ic)
+        const pair = target.closest('.input-pair');
+        if (!pair) return;
+        const inputs = pair.querySelectorAll('input[type="number"]');
+        if (inputs.length < 2) return;
+        const looseInput = inputs[0];
+        const icInput = inputs[1];
+
+        if (target === looseInput) {
+          const looseVal = safeParseFloat(looseInput.value);
+          icInput.value = looseVal === null ? "" : (looseVal / rate).toFixed(2);
+        } else if (target === icInput) {
+          const icVal = safeParseFloat(icInput.value);
+          looseInput.value = icVal === null ? "" : (icVal * rate).toFixed(0);
         }
       });
     });
@@ -222,24 +289,42 @@
     // Submit handler
     document.getElementById('dataForm').addEventListener('submit', async (e) => {
       e.preventDefault();
+      const msgEl = document.getElementById('message');
+      msgEl.textContent = "";
+
+      // basic required checks
+      const date = document.getElementById('DATE').value;
+      const name = document.getElementById('NAME').value.trim();
+      if (!date || !name) {
+        msgEl.textContent = "Please enter Date and Name.";
+        msgEl.style.color = "red";
+        return;
+      }
+
+      // collect form data
       const formData = new FormData(e.target);
       const data = Object.fromEntries(formData.entries());
-
+      // send JSON
       try {
         const res = await fetch(scriptURL, {
           method: "POST",
           body: JSON.stringify(data),
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json" }
         });
         const json = await res.json();
         if (json.result === "success") {
-          document.getElementById("responseMessage").textContent = "✅ Data submitted successfully!";
+          msgEl.textContent = "✅ Data submitted successfully!";
+          msgEl.style.color = "green";
           e.target.reset();
         } else {
-          document.getElementById("responseMessage").textContent = "⚠️ Error submitting data.";
+          msgEl.textContent = "⚠️ Error submitting data.";
+          msgEl.style.color = "red";
+          console.error(json);
         }
       } catch (err) {
-        document.getElementById("responseMessage").textContent = "❌ Connection error.";
+        msgEl.textContent = "❌ Connection error.";
+        msgEl.style.color = "red";
+        console.error(err);
       }
     });
   </script>
