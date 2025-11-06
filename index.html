@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ISR SALE PUNCH</title>
   <style>
     body {
@@ -62,10 +62,9 @@
       border-radius: 6px;
       border: 1px solid #ccc;
       width: 100%;
+      box-sizing: border-box;
     }
-    input[type="number"] {
-      step: any;
-    }
+    /* remove any invalid CSS 'step' usage - step must be an attribute on the input element */
     button {
       margin-top: 25px;
       width: 100%;
@@ -77,9 +76,7 @@
       font-size: 16px;
       cursor: pointer;
     }
-    button:hover {
-      background-color: #005fa3;
-    }
+    button:hover { background-color: #005fa3; }
     .success {
       color: green;
       text-align: center;
@@ -89,7 +86,7 @@
   </style>
 </head>
 <body>
-  <form id="dataForm">
+  <form id="dataForm" novalidate>
     <h2>ISR SALE PUNCH</h2>
 
     <label for="DATE">Date</label>
@@ -101,34 +98,34 @@
     <!-- RG SERIES -->
     <h3>RG Series</h3>
     <div class="sku-grid">
-      <div class="sku-card"><label>RG1.25G</label><div class="input-pair"><input type="number" name="RG1_25G_LOOSE" data-sku="RG1.25G" placeholder="Loose"><input type="number" name="RG1_25G_IC" data-sku="RG1.25G" placeholder="IC"></div></div>
-      <div class="sku-card"><label>RG2.20G</label><div class="input-pair"><input type="number" name="RG2_20G_LOOSE" data-sku="RG2.20G" placeholder="Loose"><input type="number" name="RG2_20G_IC" data-sku="RG2.20G" placeholder="IC"></div></div>
-      <div class="sku-card"><label>RG4.00G</label><div class="input-pair"><input type="number" name="RG4_00G_LOOSE" data-sku="RG4.00G" placeholder="Loose"><input type="number" name="RG4_00G_IC" data-sku="RG4.00G" placeholder="IC"></div></div>
-      <div class="sku-card"><label>RGZ17.00G</label><div class="input-pair"><input type="number" name="RGZ17_00G_LOOSE" data-sku="RGZ17.00G" placeholder="Loose"><input type="number" name="RGZ17_00G_IC" data-sku="RGZ17.00G" placeholder="IC"></div></div>
-      <div class="sku-card"><label>RG100.00G</label><div class="input-pair"><input type="number" name="RG100_00G_LOOSE" data-sku="RG100.00G" placeholder="Loose"><input type="number" name="RG100_00G_IC" data-sku="RG100.00G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>RG1.25G</label><div class="input-pair"><input type="number" inputmode="decimal" name="RG1_25G_LOOSE" data-sku="RG1.25G" placeholder="Loose"><input type="number" inputmode="decimal" name="RG1_25G_IC" data-sku="RG1.25G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>RG2.20G</label><div class="input-pair"><input type="number" inputmode="decimal" name="RG2_20G_LOOSE" data-sku="RG2.20G" placeholder="Loose"><input type="number" inputmode="decimal" name="RG2_20G_IC" data-sku="RG2.20G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>RG4.00G</label><div class="input-pair"><input type="number" inputmode="decimal" name="RG4_00G_LOOSE" data-sku="RG4.00G" placeholder="Loose"><input type="number" inputmode="decimal" name="RG4_00G_IC" data-sku="RG4.00G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>RGZ17.00G</label><div class="input-pair"><input type="number" inputmode="decimal" name="RGZ17_00G_LOOSE" data-sku="RGZ17.00G" placeholder="Loose"><input type="number" inputmode="decimal" name="RGZ17_00G_IC" data-sku="RGZ17.00G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>RG100.00G</label><div class="input-pair"><input type="number" inputmode="decimal" name="RG100_00G_LOOSE" data-sku="RG100.00G" placeholder="Loose"><input type="number" inputmode="decimal" name="RG100_00G_IC" data-sku="RG100.00G" placeholder="IC"></div></div>
     </div>
 
     <!-- TZ SERIES -->
     <h3>TZ Series</h3>
     <div class="sku-grid">
-      <div class="sku-card"><label>TZ0.25G</label><div class="input-pair"><input type="number" name="TZ0_25G_LOOSE" data-sku="TZ0.25G" placeholder="Loose"><input type="number" name="TZ0_25G_IC" data-sku="TZ0.25G" placeholder="IC"></div></div>
-      <div class="sku-card"><label>TZ0.45G</label><div class="input-pair"><input type="number" name="TZ0_45G_LOOSE" data-sku="TZ0.45G" placeholder="Loose"><input type="number" name="TZ0_45G_IC" data-sku="TZ0.45G" placeholder="IC"></div></div>
-      <div class="sku-card"><label>TZZ4.25G</label><div class="input-pair"><input type="number" name="TZZ4_25G_LOOSE" data-sku="TZZ4.25G" placeholder="Loose"><input type="number" name="TZZ4_25G_IC" data-sku="TZZ4.25G" placeholder="IC"></div></div>
-      <div class="sku-card"><label>TZ10.00G</label><div class="input-pair"><input type="number" name="TZ10_00G_LOOSE" data-sku="TZ10.00G" placeholder="Loose"><input type="number" name="TZ10_00G_IC" data-sku="TZ10.00G" placeholder="IC"></div></div>
-      <div class="sku-card"><label>TZ50.00G</label><div class="input-pair"><input type="number" name="TZ50_00G_LOOSE" data-sku="TZ50.00G" placeholder="Loose"><input type="number" name="TZ50_00G_IC" data-sku="TZ50.00G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>TZ0.25G</label><div class="input-pair"><input type="number" inputmode="decimal" name="TZ0_25G_LOOSE" data-sku="TZ0.25G" placeholder="Loose"><input type="number" inputmode="decimal" name="TZ0_25G_IC" data-sku="TZ0.25G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>TZ0.45G</label><div class="input-pair"><input type="number" inputmode="decimal" name="TZ0_45G_LOOSE" data-sku="TZ0.45G" placeholder="Loose"><input type="number" inputmode="decimal" name="TZ0_45G_IC" data-sku="TZ0.45G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>TZZ4.25G</label><div class="input-pair"><input type="number" inputmode="decimal" name="TZZ4_25G_LOOSE" data-sku="TZZ4.25G" placeholder="Loose"><input type="number" inputmode="decimal" name="TZZ4_25G_IC" data-sku="TZZ4.25G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>TZ10.00G</label><div class="input-pair"><input type="number" inputmode="decimal" name="TZ10_00G_LOOSE" data-sku="TZ10.00G" placeholder="Loose"><input type="number" inputmode="decimal" name="TZ10_00G_IC" data-sku="TZ10.00G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>TZ50.00G</label><div class="input-pair"><input type="number" inputmode="decimal" name="TZ50_00G_LOOSE" data-sku="TZ50.00G" placeholder="Loose"><input type="number" inputmode="decimal" name="TZ50_00G_IC" data-sku="TZ50.00G" placeholder="IC"></div></div>
     </div>
 
     <!-- KZ SERIES -->
     <h3>KZ Series</h3>
     <div class="sku-grid">
-      <div class="sku-card"><label>KZ5.75G</label><div class="input-pair"><input type="number" name="KZ5_75G_LOOSE" data-sku="KZ5.75G" placeholder="Loose"><input type="number" name="KZ5_75G_IC" data-sku="KZ5.75G" placeholder="IC"></div></div>
-      <div class="sku-card"><label>KZ30.00G</label><div class="input-pair"><input type="number" name="KZ30_00G_LOOSE" data-sku="KZ30.00G" placeholder="Loose"><input type="number" name="KZ30_00G_IC" data-sku="KZ30.00G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>KZ5.75G</label><div class="input-pair"><input type="number" inputmode="decimal" name="KZ5_75G_LOOSE" data-sku="KZ5.75G" placeholder="Loose"><input type="number" inputmode="decimal" name="KZ5_75G_IC" data-sku="KZ5.75G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>KZ30.00G</label><div class="input-pair"><input type="number" inputmode="decimal" name="KZ30_00G_LOOSE" data-sku="KZ30.00G" placeholder="Loose"><input type="number" inputmode="decimal" name="KZ30_00G_IC" data-sku="KZ30.00G" placeholder="IC"></div></div>
     </div>
 
     <!-- MT SERIES -->
     <h3>MT Series</h3>
     <div class="sku-grid">
-      <div class="sku-card"><label>MT2.75G</label><div class="input-pair"><input type="number" name="MT2_75G_LOOSE" data-sku="MT2.75G" placeholder="Loose"><input type="number" name="MT2_75G_IC" data-sku="MT2.75G" placeholder="IC"></div></div>
+      <div class="sku-card"><label>MT2.75G</label><div class="input-pair"><input type="number" inputmode="decimal" name="MT2_75G_LOOSE" data-sku="MT2.75G" placeholder="Loose"><input type="number" inputmode="decimal" name="MT2_75G_IC" data-sku="MT2.75G" placeholder="IC"></div></div>
     </div>
 
     <button type="submit">Submit Data</button>
@@ -136,6 +133,14 @@
   </form>
 
   <script>
+    // Ensure all number inputs accept decimals (this sets the attribute correctly)
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('input[type="number"]').forEach(inp => {
+        inp.setAttribute('step', 'any');     // <-- fixes the "nearest valid values are 0 and 1" error
+        inp.setAttribute('inputmode', 'decimal'); // helps mobile keyboards
+      });
+    });
+
     const scriptURL = "https://script.google.com/macros/s/AKfycbxTMfItJ2y1lfvdlWhCV39N3rMuaBuvdgPSCOr92Hq5g-LTmILku0QxNf35y4X5pfDm/exec";
 
     const conversionRates = {
@@ -144,27 +149,44 @@
       "KZ5.75G": 12, "KZ30.00G": 12, "MT2.75G": 20
     };
 
-    // Auto conversion logic
-    document.querySelectorAll('input[type="number"]').forEach(input => {
-      input.addEventListener('input', e => {
-        const sku = e.target.dataset.sku;
-        if (!sku) return;
-        const rate = conversionRates[sku];
-        const pair = e.target.parentElement.querySelectorAll('input');
-        const [looseInput, icInput] = pair;
-        if (e.target === looseInput && rate) {
-          const looseVal = parseFloat(looseInput.value);
-          icInput.value = looseVal ? (looseVal / rate).toFixed(2) : "";
-        } else if (e.target === icInput && rate) {
-          const icVal = parseFloat(icInput.value);
-          looseInput.value = icVal ? (icVal * rate).toFixed(0) : "";
-        }
-      });
+    // Auto conversion logic (Loose <-> IC)
+    function safeParseFloat(v) {
+      const n = parseFloat(v);
+      return Number.isFinite(n) ? n : null;
+    }
+
+    document.addEventListener('input', (e) => {
+      const target = e.target;
+      if (target.tagName !== 'INPUT' || target.type !== 'number') return;
+      const sku = target.dataset.sku;
+      if (!sku) return;
+      const rate = conversionRates[sku];
+      const pair = target.parentElement.querySelectorAll('input');
+      const [looseInput, icInput] = pair;
+      // if either element is missing, bail
+      if (!looseInput || !icInput) return;
+
+      if (target === looseInput && rate) {
+        const looseVal = safeParseFloat(looseInput.value);
+        icInput.value = (looseVal === null) ? "" : (looseVal / rate).toFixed(2);
+      } else if (target === icInput && rate) {
+        const icVal = safeParseFloat(icInput.value);
+        looseInput.value = (icVal === null) ? "" : (icVal * rate).toFixed(0);
+      }
     });
 
     // Submit handler
     document.getElementById('dataForm').addEventListener('submit', async (e) => {
       e.preventDefault();
+      // You disabled built-in validation with novalidate above; if you want validation, remove novalidate
+      // Minimal manual check:
+      const date = document.getElementById('DATE').value;
+      const name = document.getElementById('NAME').value.trim();
+      if (!date || !name) {
+        document.getElementById("responseMessage").textContent = "Please enter date and name.";
+        return;
+      }
+
       const formData = new FormData(e.target);
       const data = Object.fromEntries(formData.entries());
 
@@ -181,8 +203,9 @@
         } else {
           document.getElementById("responseMessage").textContent = "⚠️ Error submitting data.";
         }
-      } catch {
+      } catch (err) {
         document.getElementById("responseMessage").textContent = "❌ Connection error.";
+        console.error(err);
       }
     });
   </script>
